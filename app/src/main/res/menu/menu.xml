@@ -5,12 +5,12 @@
         android:id="@+id/home"
         android:icon="@drawable/baseline_home_24"
         android:title="@string/btn_home"
-        app:showAsAction="withText"/>
+        app:showAsAction="withText" />
     <item
         android:id="@+id/sale"
         android:icon="@drawable/baseline_percent_24"
         android:title="@string/btn_promotion"
-        app:showAsAction="withText"/>
+        app:showAsAction="withText" />
     <item
         android:id="@+id/selections"
         android:icon="@drawable/baseline_shopping_cart_24"
