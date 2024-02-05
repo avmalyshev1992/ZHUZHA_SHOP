@@ -5,16 +5,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.zhuzha_shop.databinding.ShelfItemBinding
 
 class ShelfViewHolder(private val itemView: View) : RecyclerView.ViewHolder(itemView) {
-    val filmBinding = ShelfItemBinding.bind(itemView)
+    //Привязываем View из layout к переменным
+    val shelfBinding = ShelfItemBinding.bind(itemView)
 
     fun bind(shelf: Shelf) {
 
         // заголовок
-        filmBinding.title.text = shelf.title
+        shelfBinding.title.text = shelf.title
         // картинка
-        filmBinding.picture.setImageResource(shelf.picture)
+        shelfBinding.picture.setImageResource(shelf.picture)
         // описание
-        filmBinding.description.text = shelf.description
+        shelfBinding.description.text = shelf.description
     }
-
 }

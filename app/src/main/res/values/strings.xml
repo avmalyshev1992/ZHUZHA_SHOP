@@ -3,7 +3,7 @@
     <string name="btn_menu">МЕНЮ</string>
     <string name="btn_favorites">ИЗБРАННОЕ</string>
     <string name="btn_shopping">Корзина</string>
-    <string name="btn_promotion">Акции</string>
+    <string name="btn_favorite">Избранное</string>
     <string name="btn_options">Настройки</string>
     <string name="btn_home">Главная</string>
 

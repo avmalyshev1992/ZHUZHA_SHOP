@@ -18,10 +18,14 @@ class TwoWindow : AppCompatActivity() {
 
         val link = "https://cataas.com/cat"
         Glide.with(this)
-            .load(R.drawable.ic_launcher_foreground)
+            .load(link)
             .into(binding!!.cats)
 
+    }
+    override fun onDestroy() {
+        super.onDestroy()
 
     }
+
 
 }

@@ -31,11 +31,15 @@ class MainActivity : AppCompatActivity() {
         initNavigation()
 
 
+
+
         //находим наш RV
         binding?.mainRecycler.apply {
             shelfsAdapter = ShelfListRecyclerAdapter(object : ShelfListRecyclerAdapter.OnItemClickListener{
                 override fun click(shelf: Shelf) {
-                    TODO("Not yet implemented")
+                    //Запускаем наше активити
+                    val intent = Intent(this@MainActivity, TerryWindow::class.java)
+                    startActivity(intent)
                 }
             })
             //Присваиваем адаптер
@@ -56,7 +60,26 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
 
-    }
-    private fun initNavigation(){}
 
+    }
+    private fun initNavigation() {
+
+
+        binding?.bottomNavigation?.setOnItemSelectedListener {
+
+            when (it.itemId) {
+                R.id.favorites -> {
+                    supportFragmentManager
+                        .beginTransaction()
+                        .replace(androidx.fragment.R.id.fragment_container_view_tag, FavoritesFragment())
+                        .addToBackStack(null)
+                        .commit()
+                    true
+
+                }
+                else -> false
+            }
+
+        }
+    }
 }
