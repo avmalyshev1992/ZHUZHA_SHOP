@@ -15,7 +15,7 @@
         android:theme="@style/Theme.ZHUZHA_SHOP"
         tools:targetApi="34">
         <activity
-            android:name=".DetailsActivity"
+            android:name=".DetailsFragment"
             android:exported="false" />
         <activity
             android:name=".TerryWindow"

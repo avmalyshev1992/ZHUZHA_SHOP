@@ -4,13 +4,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class FoodListRecyclerAdapter(private val clickListener: OnItemClickListenerf) :
+class FoodListRecyclerAdapter(private val clickListener: OnItemClickListener) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     //Здесь у нас хранится список элементов для RV
-    private val itemsf = mutableListOf<Food>()
+    private val items = mutableListOf<Food>()
 
     //Этот метод нужно переопределить на возврат количества элементов в списке RV
-    override fun getItemCount() = itemsf.size
+    override fun getItemCount() = items.size
 
     //В этом методе мы привязываем наш ViewHolder и передаем туда "надутую" верстку нашего фильма
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -24,29 +24,29 @@ class FoodListRecyclerAdapter(private val clickListener: OnItemClickListenerf) :
             is FoodViewHolder -> {
                 //Вызываем метод bind(), который мы создали, и передаем туда объект
                 //из нашей базы данных с указанием позиции
-                holder.bind(itemsf[position])
+                holder.bind(items[position])
                 //Обрабатываем нажатие на весь элемент целиком(можно сделать на отдельный элемент
                 //например, картинку) и вызываем метод нашего листенера, который мы получаем из
                 //конструктора адаптера
                 holder.foodBinding.itemContainerfood.setOnClickListener {
-                    clickListener.clickf(itemsf[position])
+                    clickListener.click(items[position])
                 }
             }
         }
     }
     //Метод для добавления объектов в наш список
-    fun addItemsf(list: List<Food>) {
+    fun addItems(list: List<Food>) {
         //Сначала очищаем(если не реализовать DiffUtils)
-        itemsf.clear()
+        items.clear()
         //Добавляем
-        itemsf.addAll(list)
+        items.addAll(list)
         //Уведомляем RV, что пришел новый список, и ему нужно заново все "привязывать"
         notifyDataSetChanged()
     }
 
 
     //Интерфейс для обработки кликов
-    interface OnItemClickListenerf {
-        fun clickf(food: Food)
+    interface OnItemClickListener {
+        fun click(food: Food)
     }
 }

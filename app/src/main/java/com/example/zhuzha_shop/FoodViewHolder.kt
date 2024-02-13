@@ -13,10 +13,10 @@ class FoodViewHolder (private val itemView: View) : RecyclerView.ViewHolder(item
     fun bind(food: Food) {
 
         // заголовок
-        foodBinding.titleF.text = food.titleF
+        foodBinding.title.text = food.title
         // картинка
-        foodBinding.pictureF.setImageResource(food.pictureF)
+        foodBinding.picture.setImageResource(food.picture)
         // описание
-        foodBinding.descriptionF.text = food.descriptionF
+        foodBinding.description.text = food.description
     }
 }

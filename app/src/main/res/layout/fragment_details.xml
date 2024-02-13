@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".DetailsActivity">
+    tools:context=".DetailsFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
@@ -52,9 +52,11 @@
         app:borderWidth="5dp"
         android:backgroundTint="@color/teal"
         app:layout_anchor="@id/app_bar"
-        app:layout_anchorGravity="left|bottom"
+        app:layout_anchorGravity="right|bottom"
         app:srcCompat="@drawable/baseline_favorite_border_24"
         app:tint="@android:color/white"/>
+
+
 
 
 

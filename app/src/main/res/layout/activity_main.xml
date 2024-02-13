@@ -7,17 +7,99 @@
     android:background = "@drawable/wallpaper4"
     tools:context=".MainActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/main_recycler"
-        android:layout_width="0dp"
+    <FrameLayout
+        android:id="@+id/fragment_placeholder"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_margin="56dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:columnCount="2"
+        android:orientation="horizontal"
+        android:useDefaultMargins="true"
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/shelf_item"/>
+        app:layout_constraintTop_toTopOf="@+id/fragment_placeholder">
 
+
+
+        <ImageButton
+            android:id="@+id/btn_food"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="@drawable/custom_button1"
+            android:elevation="20dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/eda"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="47dp"
+            tools:layout_editor_absoluteY="61dp" />
+
+        <ImageButton
+            android:id="@+id/btn_toys"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="@drawable/custom_button1"
+            android:elevation="20dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/toys"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="47dp"
+            tools:layout_editor_absoluteY="220dp" />
+
+        <ImageButton
+            android:id="@+id/btn_lotok"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="@drawable/custom_button1"
+            android:elevation="20dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/lotok"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="207dp"
+            tools:layout_editor_absoluteY="61dp" />
+
+        <ImageButton
+            android:id="@+id/btn_tochilka"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="@drawable/custom_button1"
+            android:elevation="20dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/tochilka"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="207dp"
+            tools:layout_editor_absoluteY="220dp" />
+
+        <ImageButton
+            android:id="@+id/btn_vitamini"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="@drawable/custom_button1"
+            android:elevation="20dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/vitamini"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="47dp"
+            tools:layout_editor_absoluteY="378dp" />
+
+        <ImageButton
+            android:id="@+id/btn_lezhanka"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="@drawable/custom_button1"
+            android:elevation="20dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/lezhanka"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="207dp"
+            tools:layout_editor_absoluteY="378dp" />
+    </GridLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
@@ -38,8 +120,10 @@
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/main_recycler"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

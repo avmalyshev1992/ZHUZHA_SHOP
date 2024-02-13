@@ -34,15 +34,15 @@ class TerryWindow : AppCompatActivity() {
 
         //находим наш RV
         binding?.mainRecycler.apply {
-            foodAdapter = FoodListRecyclerAdapter(object : FoodListRecyclerAdapter.OnItemClickListenerf{
-                override fun clickf(food: Food) {
+            foodAdapter = FoodListRecyclerAdapter(object : FoodListRecyclerAdapter.OnItemClickListener{
+                override fun click(food: Food) {
                     //Создаем бандл и кладем туда объект с данными фильма
                     val bundle = Bundle()
                     //Первым параметром указывается ключ, по которому потом будем искать, вторым сам
                     //передаваемый объект
                     bundle.putParcelable("food", food)
                     //Запускаем наше активити
-                    val intent = Intent(this@TerryWindow, DetailsActivity::class.java)
+                    val intent = Intent(this@TerryWindow, DetailsFragment::class.java)
                     //Прикрепляем бандл к интенту
                     intent.putExtras(bundle)
                     //Запускаем активити через интент
@@ -56,11 +56,11 @@ class TerryWindow : AppCompatActivity() {
             //Присвои layoutmanager
             this!!.layoutManager = LinearLayoutManager(this@TerryWindow)
             //Применяем декоратор для отступов
-            val decoratorf = TopSpacingItemDecoration(8)
-            this!!.addItemDecoration(decoratorf)
+            val decorator = TopSpacingItemDecoration(8)
+            this!!.addItemDecoration(decorator)
         }
         //Кладем нашу БД в RV
-        foodAdapter.addItemsf(foodDataBase)
+        foodAdapter.addItems(foodDataBase)
     }
 
 }

@@ -20,10 +20,12 @@ class TwoWindow : AppCompatActivity() {
         Glide.with(this)
             .load(link)
             .into(binding!!.cats)
+            .clearOnDetach()
 
     }
     override fun onDestroy() {
         super.onDestroy()
+
 
     }
 
