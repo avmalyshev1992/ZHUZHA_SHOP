@@ -1,28 +1,13 @@
 package com.example.zhuzha_shop
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.zhuzha_shop.databinding.ActivityMainBinding
 
 
 class MainActivity : AppCompatActivity() {
     private var binding: ActivityMainBinding? = null
-    private lateinit var shelfsAdapter: ShelfListRecyclerAdapter
 
-
-
-    val shelfDataBase = listOf(
-        Shelf("Корм",R.drawable.eda, "Еда для котиков" ),
-        Shelf("Удобный сон", R.drawable.lezhanka, "Каждому котику по комфортной лежаночке"),
-        Shelf("Лоточки Совочки", R.drawable.lotok, "Делай грязные дела в чистоте"),
-        Shelf("Аксессуары", R.drawable.osheynik, "Украшением котика хуже не сделаешь"),
-        Shelf("Когтеточки", R.drawable.tochilka, "Купил когтеточку, спас диван"),
-        Shelf("Игрушки", R.drawable.toys, "Чем меньше у котика игрушек, тем больше Ваших вещей стемятся упасть с полки"),
-        Shelf("Витамины", R.drawable.vitamini, "В доме, где нет витаминов, есть много шерсти под диваном")
-
-    )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -31,9 +16,34 @@ class MainActivity : AppCompatActivity() {
         initNavigation()
 
 
+        //Запускаем фрагмент при старте
+        supportFragmentManager
+            .beginTransaction()
+            .add(R.id.fragment_placeholder, HomeFragment())
+            .addToBackStack(null)
+            .commit()
 
 
-        //находим наш RV
+        fun launchDetailsFragment(shelf: Shelf) {
+            //Создаем "посылку"
+            val bundle = Bundle()
+            //Кладем наш фильм в "посылку"
+            bundle.putParcelable("shelf", shelf)
+            //Кладем фрагмент с деталями в перменную
+            val fragment = DetailsFragment()
+            //Прикрепляем нашу "посылку" к фрагменту
+            fragment.arguments = bundle
+
+            //Запускаем фрагмент
+            supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.fragment_placeholder, fragment)
+                .addToBackStack(null)
+                .commit()
+        }
+
+
+      /*  //находим наш RV
         binding?.mainRecycler.apply {
             shelfsAdapter = ShelfListRecyclerAdapter(object : ShelfListRecyclerAdapter.OnItemClickListener{
                 override fun click(shelf: Shelf) {
@@ -60,7 +70,7 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
 
-
+*/
     }
     private fun initNavigation() {
 

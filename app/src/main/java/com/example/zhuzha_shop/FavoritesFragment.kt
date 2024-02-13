@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.zhuzha_shop.databinding.FragmentFavoritesBinding
 
 
@@ -34,6 +35,24 @@ class FavoritesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         //Получаем список при транзакции фрагмента
         val favoritesList: List<Food> = emptyList()
+
+        favBinding?.favoritesRecycler?.apply {
+            foodsAdapter =
+                FoodListRecyclerAdapter(object : FoodListRecyclerAdapter.OnItemClickListener {
+                    override fun click(food: Food) {
+                        (requireActivity() as MainActivity).launchDetailsFragment(food)
+                    }
+                })
+            //Присваиваем адаптер
+            adapter = foodsAdapter
+            //Присвои layoutmanager
+            layoutManager = LinearLayoutManager(requireContext())
+            //Применяем декоратор для отступов
+            val decorator = TopSpacingItemDecoration(8)
+            addItemDecoration(decorator)
+        }
+        //Кладем нашу БД в RV
+        foodsAdapter.addItems(favoritesList)
     }
 
 

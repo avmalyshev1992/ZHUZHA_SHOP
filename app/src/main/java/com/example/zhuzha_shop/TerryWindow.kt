@@ -42,7 +42,7 @@ class TerryWindow : AppCompatActivity() {
                     //передаваемый объект
                     bundle.putParcelable("food", food)
                     //Запускаем наше активити
-                    val intent = Intent(this@TerryWindow, DetailsActivity::class.java)
+                    val intent = Intent(this@TerryWindow, DetailsFragment::class.java)
                     //Прикрепляем бандл к интенту
                     intent.putExtras(bundle)
                     //Запускаем активити через интент
