@@ -41,7 +41,7 @@ class FavoritesFragment : Fragment() {
             foodsAdapter =
                 FoodListRecyclerAdapter(object : FoodListRecyclerAdapter.OnItemClickListener {
                     override fun click(food: Food) {
-                        (requireActivity() as MainActivity).launchDetailsFragment(food)
+                        (requireActivity() as TerryWindow).launchDetailsFragment(food)
                     }
                 })
             //Присваиваем адаптер

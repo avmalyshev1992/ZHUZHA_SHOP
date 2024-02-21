@@ -77,23 +77,4 @@ class MainActivity : AppCompatActivity() {
 
         }
     }
-
-
-    fun launchDetailsFragment(food: Food ){
-        //Создаем "посылку"
-        val bundle = Bundle()
-        //Кладем наш фильм в "посылку"
-        bundle.putParcelable("food", food)
-        //Кладем фрагмент с деталями в перменную
-        val fragment = DetailsFragment()
-        //Прикрепляем нашу "посылку" к фрагменту
-        fragment.arguments = bundle
-
-        //Запускаем фрагмент
-        supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.fragment_placeholder, fragment)
-            .addToBackStack(null)
-            .commit()
-    }
 }

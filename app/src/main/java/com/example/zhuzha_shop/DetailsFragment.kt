@@ -1,5 +1,6 @@
 package com.example.zhuzha_shop
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ class DetailsFragment : Fragment() {
 
     private var detailBinding: FragmentDetailsBinding? = null
     private val binding get() = detailBinding!!
+    private lateinit var food: Food
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,7 +28,36 @@ class DetailsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setFoodsDetails()
+
+        detailBinding?.detailsFabFavorites?.setOnClickListener {
+            if (!food.isInFavorites) {
+                detailBinding?.detailsFabFavorites?.setImageResource(R.drawable.baseline_favorite_24)
+                food.isInFavorites = true
+            } else {
+                detailBinding?.detailsFabFavorites?.setImageResource(R.drawable.baseline_favorite_border_24)
+                food.isInFavorites = false
+            }
+        }
+
+        detailBinding?.detailsFabShare!!.setOnClickListener {
+            //Создаем интент
+            val intent = Intent()
+            //Укзываем action с которым он запускается
+            intent.action = Intent.ACTION_SEND
+            //Кладем данные о нашем фильме
+            intent.putExtra(
+                Intent.EXTRA_TEXT,
+                "Check out this food: ${food.title} \n\n ${food.description}"
+            )
+            //УКазываем MIME тип, чтобы система знала, какое приложения предложить
+            intent.type = "text/plain"
+            //Запускаем наше активити
+            startActivity(Intent.createChooser(intent, "Share To:"))
+        }
     }
+
+
+
 
     override fun onDestroyView() {
         super.onDestroyView()
@@ -51,8 +82,4 @@ class DetailsFragment : Fragment() {
             else R.drawable.baseline_favorite_border_24
         )
     }
-
-
-
-
 }
