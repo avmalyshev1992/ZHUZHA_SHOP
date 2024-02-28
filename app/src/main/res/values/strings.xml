@@ -2,9 +2,16 @@
     <string name="app_name">ZHUZHA_SHOP</string>
     <string name="btn_menu">МЕНЮ</string>
     <string name="btn_favorites">ИЗБРАННОЕ</string>
-    <string name="btn_shopping">КОРЗИНА</string>
-    <string name="btn_promotion">АКЦИИ</string>
-    <string name="btn_options">НАСТРОЙКИ</string>
+    <string name="btn_shopping">Корзина</string>
+    <string name="btn_favorite">Избранное</string>
+    <string name="btn_options">Настройки</string>
+    <string name="btn_home">Главная</string>
+    <string name="btn_settings">Настройки</string>
+    <string name="radio_button_popular">Популярные</string>
+    <string name="radio_button_top_rated">Диетические</string>
+    <string name="radio_button_upcoming">Натуральные</string>
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
