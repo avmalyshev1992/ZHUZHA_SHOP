@@ -16,4 +16,9 @@
         android:icon="@drawable/baseline_shopping_cart_24"
         android:title="@string/btn_shopping"
         app:showAsAction="withText"/>
+    <item
+        android:id="@+id/settings"
+        android:icon="@drawable/baseline_settings_24"
+        android:title="@string/btn_settings"
+        app:showAsAction="withText"/>
 </menu>

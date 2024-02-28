@@ -22,6 +22,8 @@ class DetailsFragment : Fragment() {
         detailBinding = FragmentDetailsBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
+
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -53,6 +55,10 @@ class DetailsFragment : Fragment() {
             intent.type = "text/plain"
             //Запускаем наше активити
             startActivity(Intent.createChooser(intent, "Share To:"))
+        }
+
+        binding.detailsFabWatchLater.setOnClickListener {
+            NotificationHelper.createNotification(requireContext(), food)
         }
     }
 
